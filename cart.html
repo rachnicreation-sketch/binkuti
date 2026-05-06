@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mon Panier | BINKUTI</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .cart-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 2rem;
+        }
+        .cart-table th {
+            text-align: left;
+            padding: 1rem;
+            border-bottom: 2px solid #eee;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            letter-spacing: 1px;
+        }
+        .cart-table td {
+            padding: 2rem 1rem;
+            border-bottom: 1px solid #eee;
+        }
+        .cart-item {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+        .cart-item img {
+            width: 80px;
+            height: 100px;
+            object-fit: cover;
+            border-radius: 4px;
+        }
+        .qty-input {
+            width: 60px;
+            padding: 0.5rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            text-align: center;
+        }
+        .remove-btn {
+            color: #ff4d4d;
+            cursor: pointer;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav class="nav-container">
+            <a href="index.html" class="logo">BIN<span>KUTI</span></a>
+            <ul class="nav-links">
+                <li><a href="shop.html">Boutique</a></li>
+                <li><a href="custom.html">Sur Mesure</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="section">
+        <div class="section-title">
+            <h2>Votre Panier</h2>
+        </div>
+
+        <div id="cart-empty" style="display: none; text-align: center; padding: 4rem;">
+            <p style="font-size: 1.2rem; margin-bottom: 2rem;">Votre panier est vide pour le moment.</p>
+            <a href="shop.html" class="btn btn-primary">Continuer mes achats</a>
+        </div>
+
+        <div id="cart-content">
+            <table class="cart-table">
+                <thead>
+                    <tr>
+                        <th>Produit</th>
+                        <th>Prix</th>
+                        <th>Quantité</th>
+                        <th>Total</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody id="cart-items-body">
+                    <!-- Items will be injected here -->
+                </tbody>
+            </table>
+
+            <div style="display: flex; justify-content: flex-end; margin-top: 3rem;">
+                <div style="width: 100%; max-width: 400px; background: #f9f9f9; padding: 2rem; border-radius: 4px;">
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 1rem;">
+                        <span>Sous-total</span>
+                        <span id="cart-subtotal">0 FCFA</span>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 1.5rem;">
+                        <span>Livraison</span>
+                        <span>Gratuite</span>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; font-weight: 800; font-size: 1.3rem; border-top: 1px solid #ddd; padding-top: 1.5rem;">
+                        <span>Total</span>
+                        <span id="cart-total" style="color: var(--primary);">0 FCFA</span>
+                    </div>
+                    <button onclick="window.location.href='checkout.html'" class="btn btn-primary" style="width: 100%; margin-top: 2rem; padding: 1.2rem;">Procéder au Paiement</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="assets/js/main.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            renderCart();
+        });
+
+        function renderCart() {
+            const body = document.getElementById('cart-items-body');
+            const cartContent = document.getElementById('cart-content');
+            const cartEmpty = document.getElementById('cart-empty');
+            
+            let items = JSON.parse(localStorage.getItem('binkuti_cart')) || [];
+
+            if (items.length === 0) {
+                cartContent.style.display = 'none';
+                cartEmpty.style.display = 'block';
+                return;
+            } else {
+                cartContent.style.display = 'block';
+                cartEmpty.style.display = 'none';
+            }
+
+            let subtotal = 0;
+            body.innerHTML = items.map((item, index) => {
+                subtotal += item.price * item.qty;
+                return `
+                    <tr>
+                        <td>
+                            <div class="cart-item">
+                                <img src="${item.img}" alt="${item.name}">
+                                <div>
+                                    <strong style="display:block;">${item.name}</strong>
+                                    <span style="font-size:0.8rem; opacity:0.6;">Taille: Unique</span>
+                                </div>
+                            </div>
+                        </td>
+                        <td>${item.price.toLocaleString()} FCFA</td>
+                        <td>
+                            <input type="number" value="${item.qty}" class="qty-input" onchange="updateQty(${index}, this.value)">
+                        </td>
+                        <td>${(item.price * item.qty).toLocaleString()} FCFA</td>
+                        <td><i class="fa-solid fa-trash-can remove-btn" onclick="removeItem(${index})"></i></td>
+                    </tr>
+                `;
+            }).join('');
+
+            document.getElementById('cart-subtotal').innerText = subtotal.toLocaleString() + ' FCFA';
+            document.getElementById('cart-total').innerText = subtotal.toLocaleString() + ' FCFA';
+        }
+
+        function updateQty(index, val) {
+            let items = JSON.parse(localStorage.getItem('binkuti_cart'));
+            items[index].qty = parseInt(val);
+            localStorage.setItem('binkuti_cart', JSON.stringify(items));
+            renderCart();
+            updateCartUI();
+        }
+
+        function removeItem(index) {
+            let items = JSON.parse(localStorage.getItem('binkuti_cart'));
+            items.splice(index, 1);
+            localStorage.setItem('binkuti_cart', JSON.stringify(items));
+            renderCart();
+            updateCartUI();
+        }
+    </script>
+</body>
+</html>

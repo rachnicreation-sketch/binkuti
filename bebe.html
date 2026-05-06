@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bébé | BINKUTI</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <!-- Top Promo Bar -->
+    <div style="background: var(--secondary); color: white; text-align: center; padding: 0.5rem; font-size: 0.8rem; letter-spacing: 1px; font-weight: 600;">
+        LIVRAISON GRATUITE DÈS 50.000 FCFA | -15% SUR VOTRE PREMIÈRE COMMANDE CODE: <strong>BINKUTI15</strong>
+    </div>
+
+    <header>
+        <nav class="nav-container">
+            <a href="index.html" class="logo">BIN<span>KUTI</span></a>
+            <ul class="nav-links">
+                <li class="has-dropdown">
+                    <a href="shop.html?cat=femme">Femme <i class="fa-solid fa-chevron-down" style="font-size: 0.7rem;"></i></a>
+                    <div class="mega-menu">
+                        <div>
+                            <h5>Prêt-à-porter</h5>
+                            <ul>
+                                <li><a href="robes.html">Robes</a></li>
+                                <li><a href="tops.html">Tops & Chemisiers</a></li>
+                                <li><a href="pantalons.html">Pantalons</a></li>
+                                <li><a href="jupes.html">Jupes</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </li>
+                <li class="has-dropdown">
+                    <a href="shop.html?cat=homme">Homme <i class="fa-solid fa-chevron-down" style="font-size: 0.7rem;"></i></a>
+                    <div class="mega-menu">
+                        <div>
+                            <h5>Collection</h5>
+                            <ul>
+                                <li><a href="costumes.html">Costumes</a></li>
+                                <li><a href="chemises.html">Chemises</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </li>
+                <li class="has-dropdown">
+                    <a href="shop.html?cat=enfant">Enfant <i class="fa-solid fa-chevron-down" style="font-size: 0.7rem;"></i></a>
+                    <div class="mega-menu">
+                        <div>
+                            <h5>Âge</h5>
+                            <ul>
+                                <li><a href="bebe.html">Bébé (0-2 ans)</a></li>
+                                <li><a href="garcon.html">Garçon (3-14 ans)</a></li>
+                                <li><a href="fille.html">Fille (3-14 ans)</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+
+            <div class="nav-actions" style="flex: 1; justify-content: flex-end; gap: 2rem;">
+                <div style="display: flex; gap: 1.2rem; align-items: center;">
+                    <i class="fa-regular fa-user" onclick="toggleAuthModal(true)" style="cursor:pointer;"></i>
+                    <div class="cart-icon" style="cursor:pointer;">
+                        <i class="fa-solid fa-bag-shopping"></i>
+                        <span class="cart-count">0</span>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="section">
+        <div class="section-title">
+            <h1>Univers Bébé</h1>
+            <p>La douceur et l'élégance pour vos tout-petits.</p>
+        </div>
+
+        <div class="product-grid">
+            <div class="product-card">
+                <div class="product-img">
+                    <img src="https://images.unsplash.com/photo-1519238263530-99bdd11df2ea?auto=format&fit=crop&q=80&w=800" alt="Bébé">
+                </div>
+                <div class="product-info">
+                    <div class="product-ratings">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <h3 class="product-name">Robe Kente Bébé</h3>
+                    <div class="product-price" style="color: #ff4d4d;">25.000 FCFA</div>
+                    <button class="btn btn-primary" style="width: 100%; margin-top: 1rem;">Ajouter au panier</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer style="background: #fdfdfd; color: #1a1a1a; border-top: 1px solid #eee; padding-top: 4rem;">
+        <div class="footer-grid">
+            <div class="footer-about">
+                <div class="logo">BIN<span>KUTI</span></div>
+                <p>La mode premium pour toute la famille.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Informations</h4>
+                <ul>
+                    <li><a href="terms.html">Conditions</a></li>
+                    <li><a href="faq.html">FAQ</a></li>
+                </ul>
+            </div>
+        </div>
+        <div style="text-align: center; padding: 2rem 0; font-size: 0.8rem; opacity: 0.5;">
+            &copy; 2026 BINKUTI.
+        </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+</body>
+</html>

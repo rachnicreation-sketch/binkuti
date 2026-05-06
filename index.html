@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BINKUTI | Création Mode & Haute Couture</title>
+    <meta name="description" content="Découvrez BINKUTI, le site de mode premium. Vêtements pour hommes, femmes et enfants. Création sur mesure par des stylistes experts.">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <header id="main-header"></header>
+
+    <main>
+        <!-- Hero Section (Shein Style) -->
+        <!-- Hero Section -->
+        <section class="hero" style="height: 60vh; background: url('assets/images/hero.png') no-repeat center center/cover; display: flex; align-items: center; justify-content: center; color: #fff; text-align: center;">
+            <div class="hero-content">
+                <h1 style="font-size: 3.5rem; margin-bottom: 1rem; text-shadow: 0 2px 4px rgba(0,0,0,0.3);">L'Art de la Perfection</h1>
+                <p style="font-size: 1.2rem; margin-bottom: 2rem; letter-spacing: 2px;">COLLECTION EXCLUSIVE 2026</p>
+                <a href="shop.html" class="btn btn-primary" style="padding: 1rem 3rem; background: #fff; color: #000; border: none; text-decoration: none;">Explorer la boutique</a>
+            </div>
+        </section>
+
+        <!-- Circle Categories -->
+        <div class="circle-categories">
+            <a href="shop.html?cat=femme" class="circle-cat">
+                <div class="circle-img"><img src="assets/images/femme_cat.png"></div>
+                <span>Robes</span>
+            </a>
+            <a href="shop.html?cat=femme" class="circle-cat">
+                <div class="circle-img"><img src="assets/images/tops_cat.png"></div>
+                <span>Tops</span>
+            </a>
+            <a href="shop.html?cat=homme" class="circle-cat">
+                <div class="circle-img"><img src="https://images.unsplash.com/photo-1594938298603-c8148c4dae35?auto=format&fit=crop&q=80&w=200"></div>
+                <span>Hommes</span>
+            </a>
+            <a href="shop.html?cat=enfant" class="circle-cat">
+                <div class="circle-img"><img src="https://images.unsplash.com/photo-1519238263530-99bdd11df2ea?auto=format&fit=crop&q=80&w=200"></div>
+                <span>Enfants</span>
+            </a>
+            <a href="shop.html?cat=accessoires" class="circle-cat">
+                <div class="circle-img"><img src="https://images.unsplash.com/photo-1524383531104-06d96200684d?auto=format&fit=crop&q=80&w=200"></div>
+                <span>Sacs</span>
+            </a>
+        </div>
+
+        <!-- Flash Sale Section -->
+        <section class="section" style="padding: 2rem 2rem; background: #fff;">
+            <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 2rem;">
+                <h2 style="font-size: 1.5rem; text-transform: uppercase; font-weight: 900;">Vente Flash</h2>
+                <div style="background: #000; color: #fff; padding: 0.3rem 0.6rem; font-weight: 700; border-radius: 2px;" id="flash-timer">02:45:12</div>
+                <a href="shop.html" style="margin-left: auto; font-size: 0.8rem; font-weight: 700; border-bottom: 1px solid #000;">VOIR TOUT ></a>
+            </div>
+            <div class="product-grid" id="flash-sale-grid" style="grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 1rem;">
+                <!-- Dynamique -->
+            </div>
+        </section>
+
+        <!-- Featured Products -->
+        <section class="section" style="background: #fdfdfd;">
+            <div class="section-title">
+                <h2>Nos Incontournables</h2>
+                <p>Les pièces maîtresses de notre atelier.</p>
+            </div>
+            <div class="product-grid" id="featured-products-grid">
+                <!-- Dynamique -->
+            </div>
+        </section>
+
+        <script>
+            document.addEventListener('DOMContentLoaded', () => {
+                const flashGrid = document.getElementById('flash-sale-grid');
+                const featGrid = document.getElementById('featured-products-grid');
+                const dailyGrid = document.getElementById('daily-new-grid');
+                
+                if(flashGrid) flashGrid.innerHTML = PRODUCTS_DB.slice(0, 4).map(p => generateProductHTML(p)).join('');
+                if(featGrid) featGrid.innerHTML = PRODUCTS_DB.slice(4, 10).map(p => generateProductHTML(p)).join('');
+                if(dailyGrid) dailyGrid.innerHTML = PRODUCTS_DB.slice(0, 6).map(p => `
+                    <div class="product-card" style="height: 220px;">
+                        <div class="product-img" style="height: 100%;">
+                            <img src="${p.imgs[0]}" style="height: 100%; object-fit: cover;">
+                        </div>
+                    </div>
+                `).join('');
+            });
+        </script>
+
+        <!-- Newsletter -->
+        <section class="section" style="background: var(--secondary); color: white; border-radius: 4px; margin: 4rem 2rem; display: flex; flex-direction: column; align-items: center; text-align: center;">
+            <h2>Rejoignez le Cercle BINKUTI</h2>
+            <p style="opacity: 0.8; margin-bottom: 2rem;">Recevez nos nouvelles collections et des invitations exclusives.</p>
+            <form onsubmit="event.preventDefault(); showNotification('Inscription réussie ! Merci.'); this.reset();" class="newsletter" style="width: 100%; max-width: 500px; display: flex; gap: 0;">
+                <input type="email" placeholder="Votre adresse email" required style="flex: 1; padding: 1rem; border: none; border-radius: 4px 0 0 4px;">
+                <button type="submit" class="btn btn-primary" style="padding: 0 2rem; border-radius: 0 4px 4px 0; background: #000;">S'abonner</button>
+            </form>
+        </section>
+    </main>
+
+    <footer id="main-footer"></footer>
+
+    <script src="assets/js/main.js"></script>
+</body>
+</html>

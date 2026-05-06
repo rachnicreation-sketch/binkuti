@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contactez-nous | BINKUTI</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <header>
+        <nav class="nav-container">
+            <a href="index.html" class="logo">BIN<span>KUTI</span></a>
+            <ul class="nav-links">
+                <li><a href="shop.html">Boutique</a></li>
+                <li><a href="custom.html">Sur Mesure</a></li>
+                <li><a href="contact.html" class="active">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="section">
+        <div class="section-title">
+            <h2>Contactez l'Atelier</h2>
+            <p>Une question ? Un projet de création ? Notre équipe est à votre écoute.</p>
+        </div>
+
+        <div class="shop-container" style="grid-template-columns: 1fr 1fr; max-width: 1100px; margin: 0 auto;">
+            <div style="background: var(--secondary); color: white; padding: 4rem; border-radius: 4px;">
+                <h3 style="color: var(--primary); font-size: 2rem; margin-bottom: 2rem;">Nos Coordonnées</h3>
+                <div style="margin-bottom: 2rem;">
+                    <h4 style="margin-bottom: 0.5rem; text-transform: uppercase; font-size: 0.8rem; opacity: 0.6;">Adresse</h4>
+                    <p>Rue de la Mode, Douala, Cameroun</p>
+                </div>
+                <div style="margin-bottom: 2rem;">
+                    <h4 style="margin-bottom: 0.5rem; text-transform: uppercase; font-size: 0.8rem; opacity: 0.6;">Téléphone</h4>
+                    <p>+237 600 00 00 00</p>
+                </div>
+                <div style="margin-bottom: 2rem;">
+                    <h4 style="margin-bottom: 0.5rem; text-transform: uppercase; font-size: 0.8rem; opacity: 0.6;">Email</h4>
+                    <p>contact@binkuti.com</p>
+                </div>
+                <div style="margin-top: 4rem; display: flex; gap: 1.5rem; font-size: 1.5rem;">
+                    <i class="fa-brands fa-instagram"></i>
+                    <i class="fa-brands fa-whatsapp"></i>
+                </div>
+            </div>
+
+            <div style="padding: 2rem;">
+                <form id="contact-form">
+                    <div class="form-group">
+                        <label>Votre Nom</label>
+                        <input type="text" placeholder="Entrez votre nom" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Votre Email</label>
+                        <input type="email" placeholder="votre@email.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Sujet</label>
+                        <select>
+                            <option>Demande de renseignement</option>
+                            <option>Suivi de commande</option>
+                            <option>Rendez-vous Styliste</option>
+                            <option>Autre</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Message</label>
+                        <textarea rows="5" placeholder="Comment pouvons-nous vous aider ?"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary" style="width: 100%; padding: 1.2rem;">Envoyer le message</button>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div style="text-align: center; padding: 2rem; opacity: 0.5;">
+            &copy; 2026 BINKUTI. Tous droits réservés.
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('contact-form')?.addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('Merci ! Votre message a été envoyé à notre équipe.');
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aide & FAQ | BINKUTI</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .faq-item {
+            border-bottom: 1px solid #eee;
+            padding: 1.5rem 0;
+        }
+        .faq-question {
+            font-weight: 700;
+            font-size: 1.1rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .faq-answer {
+            margin-top: 1rem;
+            opacity: 0.7;
+            display: none;
+        }
+        .faq-item.active .faq-answer {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav class="nav-container">
+            <a href="index.html" class="logo">BIN<span>KUTI</span></a>
+        </nav>
+    </header>
+
+    <main class="section" style="max-width: 800px; margin: 0 auto;">
+        <h1 style="text-align: center; margin-bottom: 3rem;">Centre d'Aide</h1>
+
+        <div class="faq-container">
+            <div class="faq-item">
+                <div class="faq-question">Quels sont les délais de livraison ? <i class="fa-solid fa-plus"></i></div>
+                <div class="faq-answer">La livraison standard prend généralement entre 3 et 5 jours ouvrables. Pour les commandes sur mesure, prévoyez un délai de 15 jours pour la confection et l'expédition.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">Comment retourner un article ? <i class="fa-solid fa-plus"></i></div>
+                <div class="faq-answer">Vous disposez de 14 jours après réception pour retourner vos articles de prêt-à-porter. Les articles sur mesure ne sont pas éligibles aux retours sauf en cas de défaut de fabrication.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">Quels modes de paiement acceptez-vous ? <i class="fa-solid fa-plus"></i></div>
+                <div class="faq-answer">Nous acceptons les cartes Visa et Mastercard, ainsi que les paiements Mobile Money via MTN et Airtel Money.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">Proposez-vous une livraison internationale ? <i class="fa-solid fa-plus"></i></div>
+                <div class="faq-answer">Oui, nous livrons dans toute l'Afrique et vers l'Europe. Les frais de port sont calculés automatiquement lors de la validation de votre panier.</div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        document.querySelectorAll('.faq-question').forEach(item => {
+            item.addEventListener('click', () => {
+                const parent = item.parentElement;
+                parent.classList.toggle('active');
+                const icon = item.querySelector('i');
+                icon.classList.toggle('fa-plus');
+                icon.classList.toggle('fa-minus');
+            });
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Produit | BINKUTI Fashion</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
+    <style>
+        .product-detail-container {
+            max-width: 1200px;
+            margin: 4rem auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 4rem;
+        }
+        .gallery-container {
+            display: flex;
+            gap: 1rem;
+        }
+        .thumbnails {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        .thumbnails img {
+            width: 80px;
+            height: 100px;
+            object-fit: cover;
+            cursor: pointer;
+            border: 1px solid transparent;
+            transition: 0.3s;
+        }
+        .thumbnails img:hover { border-color: var(--secondary); }
+        .main-img {
+            flex: 1;
+            height: 700px;
+            background: #f5f5f5;
+        }
+        .main-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .detail-info {
+            position: sticky;
+            top: 100px;
+            height: fit-content;
+        }
+        .detail-info h1 { font-size: 2rem; margin-bottom: 0.5rem; }
+        .detail-info .price { font-size: 1.8rem; color: #ff4d4d; font-weight: 800; margin: 1.5rem 0; }
+        .size-selector { margin: 2rem 0; }
+        .size-list { display: flex; gap: 1rem; margin-top: 1rem; }
+        .size-btn {
+            padding: 0.8rem 1.5rem;
+            border: 1px solid #ddd;
+            background: #fff;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .size-btn.active { background: #000; color: #fff; border-color: #000; }
+        .qty-selector { display: flex; align-items: center; border: 1px solid #ddd; width: fit-content; margin-bottom: 2rem; }
+        .qty-selector button { padding: 0.8rem 1.2rem; border: none; background: #fff; cursor: pointer; }
+        .qty-selector input { width: 40px; text-align: center; border: none; border-left: 1px solid #ddd; border-right: 1px solid #ddd; }
+        
+        @media (max-width: 992px) {
+            .product-detail-container { grid-template-columns: 1fr; }
+            .main-img { height: 500px; }
+        }
+    </style>
+</head>
+<body>
+    <header id="main-header">
+        <!-- Will be updated by script -->
+    </header>
+
+    <div id="product-content">
+        <!-- Dynamic Content -->
+    </div>
+
+    <footer id="main-footer"></footer>
+
+    <script src="assets/js/main.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const productId = parseInt(urlParams.get('id'));
+            const product = PRODUCTS_DB.find(p => p.id === productId);
+
+            if (!product) {
+                document.getElementById('product-content').innerHTML = '<div style="text-align:center; padding: 10rem;">Produit non trouvé. <a href="shop.html">Retour à la boutique</a></div>';
+                return;
+            }
+
+            renderProduct(product);
+        });
+
+        function renderProduct(p) {
+            const container = document.getElementById('product-content');
+            container.innerHTML = `
+                <div class="product-detail-container">
+                    <div class="gallery-container">
+                        <div class="thumbnails">
+                            ${p.imgs.map(img => `<img src="${img}" onclick="updateMainImg('${img}')">`).join('')}
+                        </div>
+                        <div class="main-img">
+                            <img src="${p.imgs[0]}" id="current-main-img">
+                        </div>
+                    </div>
+                    <div class="detail-info">
+                        <p style="opacity:0.6; text-transform:uppercase; font-size:0.8rem;">${p.cat} > ${p.type}</p>
+                        <h1>${p.name}</h1>
+                        <div class="product-ratings" style="color: #ffc107;">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                            <span style="color:#666; font-size:0.9rem; margin-left:0.5rem;">(154 avis)</span>
+                        </div>
+                        <div class="price">${p.price.toLocaleString()} FCFA</div>
+                        <p style="color:#666; line-height:1.6; margin-bottom:2rem;">${p.desc}</p>
+                        
+                        <div class="size-selector">
+                            <p style="font-weight:700;">SÉLECTIONNER LA TAILLE</p>
+                            <div class="size-list">
+                                ${p.sizes.map(s => `<button class="size-btn">${s}</button>`).join('')}
+                            </div>
+                        </div>
+
+                        <div style="font-weight:700; margin-bottom:1rem;">QUANTITÉ</div>
+                        <div class="qty-selector">
+                            <button onclick="updateQty(-1)">-</button>
+                            <input type="number" value="1" id="qty-input" readonly>
+                            <button onclick="updateQty(1)">+</button>
+                        </div>
+
+                        <button class="btn btn-primary" onclick="handleAddToCart(${p.id}, '${p.name}', ${p.price}, '${p.imgs[0]}')" style="width:100%; padding: 1.2rem; font-size: 1.1rem; border-radius: 4px;">AJOUTER AU PANIER</button>
+                        
+                        <div style="margin-top: 2rem; border-top: 1px solid #eee; padding-top: 2rem;">
+                            <div style="display:flex; gap:1rem; margin-bottom:1rem;">
+                                <i class="fa-solid fa-truck-fast"></i>
+                                <div>
+                                    <p style="font-weight:700; font-size:0.9rem;">Livraison Gratuite</p>
+                                    <p style="font-size:0.8rem; color:#666;">Sur les commandes de plus de 50.000 FCFA</p>
+                                </div>
+                            </div>
+                            <div style="display:flex; gap:1rem;">
+                                <i class="fa-solid fa-shield-halved"></i>
+                                <div>
+                                    <p style="font-weight:700; font-size:0.9rem;">Paiement Sécurisé</p>
+                                    <p style="font-size:0.8rem; color:#666;">Visa, Mastercard, MTN, Airtel</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+
+            // Active size toggle
+            const sizeBtns = document.querySelectorAll('.size-btn');
+            sizeBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    sizeBtns.forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                });
+            });
+        }
+
+        function updateMainImg(src) {
+            document.getElementById('current-main-img').src = src;
+        }
+
+        function updateQty(val) {
+            const input = document.getElementById('qty-input');
+            let current = parseInt(input.value);
+            if (current + val >= 1) input.value = current + val;
+        }
+
+        function handleAddToCart(id, name, price, img) {
+            const qty = parseInt(document.getElementById('qty-input').value);
+            // Add to cart with qty
+            for(let i=0; i<qty; i++) {
+                addToCart(id, name, price, img);
+            }
+        }
+    </script>
+</body>
+</html>
