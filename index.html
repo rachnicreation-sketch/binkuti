@@ -3,104 +3,96 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BINKUTI | Création Mode & Haute Couture</title>
-    <meta name="description" content="Découvrez BINKUTI, le site de mode premium. Vêtements pour hommes, femmes et enfants. Création sur mesure par des stylistes experts.">
+    <title>BINKUTI | L'Art de la Perfection - Mode & Sur Mesure</title>
+    <meta name="description" content="Découvrez BINKUTI, la maison de mode premium proposant des collections exclusives pour hommes, femmes et enfants, ainsi qu'un service de création sur mesure d'exception.">
     <link rel="stylesheet" href="assets/css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
 </head>
 <body>
-
     <header id="main-header"></header>
 
     <main>
-        <!-- Hero Section (Shein Style) -->
         <!-- Hero Section -->
-        <section class="hero" style="height: 60vh; background: url('assets/images/hero.png') no-repeat center center/cover; display: flex; align-items: center; justify-content: center; color: #fff; text-align: center;">
+        <section class="hero" style="height: 60vh; background: url('assets/images/hero_banner.png') no-repeat center center/cover; display: flex; align-items: center; justify-content: center; color: #fff; text-align: center;">
             <div class="hero-content">
                 <h1 style="font-size: 3.5rem; margin-bottom: 1rem; text-shadow: 0 2px 4px rgba(0,0,0,0.3);">L'Art de la Perfection</h1>
                 <p style="font-size: 1.2rem; margin-bottom: 2rem; letter-spacing: 2px;">COLLECTION EXCLUSIVE 2026</p>
-                <a href="shop.html" class="btn btn-primary" style="padding: 1rem 3rem; background: #fff; color: #000; border: none; text-decoration: none;">Explorer la boutique</a>
+                <a href="shop.html" class="btn btn-primary" style="padding: 1rem 3rem;">DÉCOUVRIR</a>
             </div>
         </section>
 
         <!-- Circle Categories -->
         <div class="circle-categories">
-            <a href="shop.html?cat=femme" class="circle-cat">
-                <div class="circle-img"><img src="assets/images/femme_cat.png"></div>
+            <a href="collections/robes.html" class="circle-cat">
+                <div class="circle-img"><img src="assets/images/red_dress.png"></div>
                 <span>Robes</span>
             </a>
-            <a href="shop.html?cat=femme" class="circle-cat">
-                <div class="circle-img"><img src="assets/images/tops_cat.png"></div>
-                <span>Tops</span>
+            <a href="collections/costumes.html" class="circle-cat">
+                <div class="circle-img"><img src="assets/images/navy_suit.png"></div>
+                <span>Homme</span>
             </a>
-            <a href="shop.html?cat=homme" class="circle-cat">
-                <div class="circle-img"><img src="https://images.unsplash.com/photo-1594938298603-c8148c4dae35?auto=format&fit=crop&q=80&w=200"></div>
-                <span>Hommes</span>
+            <a href="collections/bebe.html" class="circle-cat">
+                <div class="circle-img"><img src="assets/images/product-5.jpg"></div>
+                <span>Enfant</span>
             </a>
-            <a href="shop.html?cat=enfant" class="circle-cat">
-                <div class="circle-img"><img src="https://images.unsplash.com/photo-1519238263530-99bdd11df2ea?auto=format&fit=crop&q=80&w=200"></div>
-                <span>Enfants</span>
-            </a>
-            <a href="shop.html?cat=accessoires" class="circle-cat">
-                <div class="circle-img"><img src="https://images.unsplash.com/photo-1524383531104-06d96200684d?auto=format&fit=crop&q=80&w=200"></div>
-                <span>Sacs</span>
+            <a href="collections/accessoires.html" class="circle-cat">
+                <div class="circle-img"><img src="assets/images/leather_bag.png"></div>
+                <span>Accessoires</span>
             </a>
         </div>
 
-        <!-- Flash Sale Section -->
-        <section class="section" style="padding: 2rem 2rem; background: #fff;">
-            <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 2rem;">
-                <h2 style="font-size: 1.5rem; text-transform: uppercase; font-weight: 900;">Vente Flash</h2>
-                <div style="background: #000; color: #fff; padding: 0.3rem 0.6rem; font-weight: 700; border-radius: 2px;" id="flash-timer">02:45:12</div>
-                <a href="shop.html" style="margin-left: auto; font-size: 0.8rem; font-weight: 700; border-bottom: 1px solid #000;">VOIR TOUT ></a>
+        <!-- Featured Collections -->
+        <section class="section">
+            <div class="section-title">
+                <h2>Collections Phares</h2>
+                <p>Des pièces uniques conçues pour sublimer votre allure.</p>
             </div>
-            <div class="product-grid" id="flash-sale-grid" style="grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 1rem;">
-                <!-- Dynamique -->
+            <div class="product-grid" id="featured-products">
+                <!-- Products will be injected by main.js -->
+            </div>
+            <div style="text-align: center; margin-top: 4rem;">
+                <a href="shop.html" class="btn btn-primary" style="padding: 1.2rem 4rem;">VOIR TOUTE LA BOUTIQUE</a>
             </div>
         </section>
 
-        <!-- Featured Products -->
+        <!-- Testimonials -->
         <section class="section" style="background: #fdfdfd;">
             <div class="section-title">
-                <h2>Nos Incontournables</h2>
-                <p>Les pièces maîtresses de notre atelier.</p>
+                <h2>L'Expérience BINKUTI</h2>
+                <p>Ce que nos clients disent de nous à travers le monde.</p>
             </div>
-            <div class="product-grid" id="featured-products-grid">
-                <!-- Dynamique -->
+            <div class="shop-container" style="display: flex; overflow-x: auto; gap: 2rem; padding: 1rem 2rem; scrollbar-width: none;">
+                <div style="min-width: 300px; background: white; padding: 2rem; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.05);">
+                    <div style="color: #ffc107; margin-bottom: 1rem;"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                    <p style="font-style: italic; margin-bottom: 1.5rem;">"La qualité du tissu Ndop et la précision de la coupe sur mesure sont tout simplement incroyables. Une fierté africaine."</p>
+                    <p style="font-weight: 700; font-size: 0.9rem;">- Samuel E., Douala</p>
+                </div>
+                <div style="min-width: 300px; background: white; padding: 2rem; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.05);">
+                    <div style="color: #ffc107; margin-bottom: 1rem;"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                    <p style="font-style: italic; margin-bottom: 1.5rem;">"J'ai commandé ma robe de mariée sur mesure. L'équipe a été à l'écoute de chaque détail. Le résultat était magique."</p>
+                    <p style="font-weight: 700; font-size: 0.9rem;">- Marie-Laure T., Paris</p>
+                </div>
+                <div style="min-width: 300px; background: white; padding: 2rem; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.05);">
+                    <div style="color: #ffc107; margin-bottom: 1rem;"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                    <p style="font-style: italic; margin-bottom: 1.5rem;">"Le service de livraison est rapide et le packaging est digne des plus grandes maisons de luxe européennes."</p>
+                    <p style="font-weight: 700; font-size: 0.9rem;">- Jean-Paul K., Abidjan</p>
+                </div>
             </div>
-        </section>
-
-        <script>
-            document.addEventListener('DOMContentLoaded', () => {
-                const flashGrid = document.getElementById('flash-sale-grid');
-                const featGrid = document.getElementById('featured-products-grid');
-                const dailyGrid = document.getElementById('daily-new-grid');
-                
-                if(flashGrid) flashGrid.innerHTML = PRODUCTS_DB.slice(0, 4).map(p => generateProductHTML(p)).join('');
-                if(featGrid) featGrid.innerHTML = PRODUCTS_DB.slice(4, 10).map(p => generateProductHTML(p)).join('');
-                if(dailyGrid) dailyGrid.innerHTML = PRODUCTS_DB.slice(0, 6).map(p => `
-                    <div class="product-card" style="height: 220px;">
-                        <div class="product-img" style="height: 100%;">
-                            <img src="${p.imgs[0]}" style="height: 100%; object-fit: cover;">
-                        </div>
-                    </div>
-                `).join('');
-            });
-        </script>
-
-        <!-- Newsletter -->
-        <section class="section" style="background: var(--secondary); color: white; border-radius: 4px; margin: 4rem 2rem; display: flex; flex-direction: column; align-items: center; text-align: center;">
-            <h2>Rejoignez le Cercle BINKUTI</h2>
-            <p style="opacity: 0.8; margin-bottom: 2rem;">Recevez nos nouvelles collections et des invitations exclusives.</p>
-            <form onsubmit="event.preventDefault(); showNotification('Inscription réussie ! Merci.'); this.reset();" class="newsletter" style="width: 100%; max-width: 500px; display: flex; gap: 0;">
-                <input type="email" placeholder="Votre adresse email" required style="flex: 1; padding: 1rem; border: none; border-radius: 4px 0 0 4px;">
-                <button type="submit" class="btn btn-primary" style="padding: 0 2rem; border-radius: 0 4px 4px 0; background: #000;">S'abonner</button>
-            </form>
         </section>
     </main>
 
     <footer id="main-footer"></footer>
 
     <script src="assets/js/main.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const grid = document.getElementById('featured-products');
+            if (grid) {
+                // Show first 8 products as featured
+                grid.innerHTML = PRODUCTS_DB.slice(0, 8).map(p => generateProductHTML(p)).join('');
+            }
+        });
+    </script>
 </body>
 </html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Suivre ma Commande | BINKUTI</title>
+    <meta name="description" content="Suivez l'état de votre commande BINKUTI en temps réel.">
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <header id="main-header"></header>
+
+    <main class="section" style="max-width: 600px; text-align: center;">
+        <i class="fa-solid fa-truck-fast" style="font-size: 3rem; color: var(--primary); margin-bottom: 2rem;"></i>
+        <h1>Suivre ma Commande</h1>
+        <p style="opacity: 0.6; margin-bottom: 3rem;">Entrez votre numéro de commande pour connaître l'état de votre livraison.</p>
+
+        <form onsubmit="event.preventDefault(); document.getElementById('track-result').style.display='block';">
+            <div class="form-group" style="text-align: left;">
+                <label>Numéro de Commande</label>
+                <input type="text" placeholder="ex: BK-2026-9402" required style="width: 100%; padding: 1rem; border: 1px solid #ddd; border-radius: 4px;">
+            </div>
+            <div class="form-group" style="text-align: left; margin-top: 1.5rem;">
+                <label>Email de facturation</label>
+                <input type="email" placeholder="votre@email.com" required style="width: 100%; padding: 1rem; border: 1px solid #ddd; border-radius: 4px;">
+            </div>
+            <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 2rem;">Suivre la commande</button>
+        </form>
+
+        <div id="track-result" style="display: none; margin-top: 4rem; padding: 2rem; background: #f9f9f9; border-radius: 8px; text-align: left;">
+            <h3 style="margin-bottom: 1rem;">Statut : <span style="color: #1976d2;">En cours de livraison</span></h3>
+            <p style="font-size: 0.9rem; opacity: 0.7; margin-bottom: 1.5rem;">Votre colis a quitté notre entrepôt de Douala le 05 Mai 2026. Livraison estimée le 08 Mai.</p>
+            
+            <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem; font-size: 0.85rem; font-weight: 600;">
+                <span>Commandé</span><span>Préparé</span><span>Expédié</span><span>Livré</span>
+            </div>
+            <div style="height: 6px; background: #eee; border-radius: 3px; position: relative;">
+                <div style="height: 100%; width: 75%; background: var(--primary); border-radius: 3px;"></div>
+            </div>
+            <div style="display: flex; justify-content: space-between; margin-top: 0.5rem; font-size: 0.75rem; opacity: 0.5;">
+                <span>✓</span><span>✓</span><span>✓</span><span>...</span>
+            </div>
+        </div>
+    </main>
+
+    <footer id="main-footer"></footer>
+
+    <script src="../assets/js/main.js"></script>
+</body>
+</html>

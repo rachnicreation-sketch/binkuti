@@ -33,11 +33,7 @@
 </head>
 <body>
 
-    <header>
-        <nav class="nav-container">
-            <a href="index.html" class="logo">BIN<span>KUTI</span></a>
-        </nav>
-    </header>
+    <header id="main-header"></header>
 
     <main class="section" style="max-width: 1000px;">
         <div class="shop-container" style="grid-template-columns: 1.5fr 1fr;">
@@ -117,8 +113,8 @@
                 <h3>Résumé de la commande</h3>
                 <div style="margin: 1.5rem 0; border-bottom: 1px solid #eee; padding-bottom: 1rem;">
                     <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
-                        <span>Articles (2)</span>
-                        <span>80.000 FCFA</span>
+                        <span id="summary-count">Articles (0)</span>
+                        <span id="summary-subtotal">0 FCFA</span>
                     </div>
                     <div style="display: flex; justify-content: space-between;">
                         <span>Livraison</span>
@@ -127,14 +123,27 @@
                 </div>
                 <div style="display: flex; justify-content: space-between; font-weight: 800; font-size: 1.2rem;">
                     <span>Total</span>
-                    <span style="color: var(--primary);">80.000 FCFA</span>
+                    <span style="color: var(--primary);" id="summary-total">0 FCFA</span>
                 </div>
                 <p style="font-size: 0.8rem; opacity: 0.6; margin-top: 2rem; text-align: center;">Paiement 100% sécurisé et crypté.</p>
             </div>
         </div>
     </main>
 
+    <footer id="main-footer"></footer>
+
+    <script src="assets/js/main.js"></script>
     <script>
+        // Populate order summary from cart
+        document.addEventListener('DOMContentLoaded', () => {
+            const cart = JSON.parse(localStorage.getItem('binkuti_cart')) || [];
+            const totalQty = cart.reduce((acc, i) => acc + i.qty, 0);
+            const totalPrice = cart.reduce((acc, i) => acc + i.price * i.qty, 0);
+            document.getElementById('summary-count').innerText = `Articles (${totalQty})`;
+            document.getElementById('summary-subtotal').innerText = totalPrice.toLocaleString() + ' FCFA';
+            document.getElementById('summary-total').innerText = totalPrice.toLocaleString() + ' FCFA';
+        });
+
         function selectPayment(element, type) {
             document.querySelectorAll('.payment-card').forEach(card => {
                 card.classList.remove('active');
@@ -155,8 +164,8 @@
             }
 
             setTimeout(() => {
-                alert('Transaction réussie ! Vous allez recevoir un email de confirmation.');
-                window.location.href = 'index.html';
+                localStorage.removeItem('binkuti_cart');
+                window.location.href = 'success.html';
             }, 3000);
         }
     </script>

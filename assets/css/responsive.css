@@ -1,0 +1,81 @@
+
+/* Drawer overlay active */
+.drawer-overlay.active {
+    display: block;
+}
+
+/* Auth tab active state */
+.auth-tab.active {
+    opacity: 1;
+    border-bottom: 3px solid var(--primary);
+    color: var(--primary);
+}
+
+/* Slideshow animation */
+@keyframes slideIn {
+    from { transform: translateX(100px); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+
+/* =====================
+   RESPONSIVE / MOBILE
+   ===================== */
+
+@media (max-width: 1024px) {
+    .mega-menu { width: 600px; grid-template-columns: repeat(3, 1fr); }
+    .hero-text h1 { font-size: 3.5rem; }
+}
+
+@media (max-width: 768px) {
+    /* Navigation */
+    .nav-links { display: none; }
+    .mega-menu { display: none !important; }
+    .nav-container { padding: 0.8rem 1rem; }
+
+    /* Hero */
+    .hero-text h1 { font-size: 2.5rem; }
+    .hero-content { grid-template-columns: 1fr; }
+    .hero-image { display: none; }
+
+    /* Products */
+    .product-grid { grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+    .product-img { height: 280px; }
+
+    /* Shop layout */
+    .shop-container { grid-template-columns: 1fr; }
+    .filters-sidebar { position: static; }
+
+    /* Circle categories */
+    .circle-categories { gap: 1rem; }
+    .circle-cat { width: 75px; }
+    .circle-img { width: 65px; height: 65px; }
+
+    /* Section */
+    .section { padding: 3rem 1rem; }
+    .section-title h2 { font-size: 2rem; }
+
+    /* Footer */
+    .footer-grid { grid-template-columns: 1fr 1fr; gap: 2rem; }
+    .footer-bottom { flex-direction: column; text-align: center; gap: 0.5rem; }
+
+    /* Cart drawer */
+    .cart-drawer { max-width: 100%; }
+
+    /* Auth modal */
+    .modal-content { padding: 2rem 1.5rem; margin: 1rem; }
+
+    /* Profile */
+    .profile-container { grid-template-columns: 1fr !important; }
+
+    /* Form grid */
+    .form-grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 480px) {
+    .product-grid { grid-template-columns: 1fr; }
+    .circle-categories { gap: 0.75rem; }
+    .footer-grid { grid-template-columns: 1fr; }
+    .hero-text h1 { font-size: 2rem; }
+    .logo { font-size: 1.4rem; }
+    .btn { padding: 0.8rem 1.5rem; font-size: 0.9rem; }
+}

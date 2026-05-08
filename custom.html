@@ -8,34 +8,14 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-
-    <header>
-        <nav class="nav-container">
-            <a href="index.html" class="logo">BIN<span>KUTI</span></a>
-            <ul class="nav-links">
-                <li><a href="shop.html?cat=femme">Femme</a></li>
-                <li><a href="shop.html?cat=homme">Homme</a></li>
-                <li><a href="shop.html?cat=enfant">Enfant</a></li>
-                <li><a href="custom.html" class="active">Sur Mesure</a></li>
-                <li><a href="shop.html">Boutique</a></li>
-            </ul>
-            <div class="nav-actions">
-                <div class="cart-icon">
-                    <i class="fa-solid fa-bag-shopping"></i>
-                    <span class="cart-count">0</span>
-                </div>
-            </div>
-        </nav>
-    </header>
-
+    <header id="main-header"></header>
     <main class="section african-pattern">
         <div class="section-title">
             <h2>Création Sur Mesure</h2>
             <p>Confiez vos envies à nos stylistes. Remplissez le formulaire ci-dessous pour une pièce unique.</p>
         </div>
-
         <div class="custom-form">
-            <form id="sur-mesure-form">
+            <form id="custom-order-form">
                 <div class="form-grid">
                     <div class="form-group">
                         <label>Nom complet</label>
@@ -46,7 +26,6 @@
                         <input type="email" placeholder="votre@email.com" required>
                     </div>
                 </div>
-
                 <div class="form-grid">
                     <div class="form-group">
                         <label>Type de vêtement</label>
@@ -62,14 +41,18 @@
                         <label>Choix du tissu</label>
                         <select required>
                             <option value="">Sélectionnez...</option>
-                            <option>Coton Égyptien</option>
-                            <option>Soie de Lyon</option>
+                            <option>Wax Hollandais (Premium)</option>
+                            <option>Bazin Riche (Vainqueur)</option>
+                            <option>Ndop Traditionnel (Cameroun)</option>
+                            <option>Toghu Brodé</option>
+                            <option>Kente (Ghana)</option>
+                            <option>Satin de Soie d'Italie</option>
+                            <option>Velours de Luxe</option>
                             <option>Lin de Belgique</option>
-                            <option>Laine Italienne</option>
+                            <option>Laine Italienne (Super 150)</option>
                         </select>
                     </div>
                 </div>
-
                 <h3 style="margin: 2rem 0 1rem; border-bottom: 1px solid #eee; padding-bottom: 0.5rem;">Vos Mensurations (cm)</h3>
                 <div class="form-grid">
                     <div class="form-group">
@@ -89,31 +72,17 @@
                         <input type="number" placeholder="ex: 100">
                     </div>
                 </div>
-
                 <div class="form-group">
                     <label>Instructions spéciales ou Détails du design</label>
                     <textarea rows="5" placeholder="Décrivez votre vision..."></textarea>
                 </div>
-
                 <div style="text-align: center; margin-top: 2rem;">
                     <button type="submit" class="btn btn-primary" style="padding: 1.2rem 4rem;">Envoyer ma demande</button>
                 </div>
             </form>
         </div>
     </main>
-
-    <footer>
-        <div style="text-align: center; padding: 2rem; opacity: 0.5;">
-            &copy; 2026 BINKUTI. Tous droits réservés.
-        </div>
-    </footer>
-
+    <footer id="main-footer"></footer>
     <script src="assets/js/main.js"></script>
-    <script>
-        document.getElementById('sur-mesure-form').addEventListener('submit', (e) => {
-            e.preventDefault();
-            alert('Votre demande a été envoyée avec succès ! Un styliste vous contactera sous 24h.');
-        });
-    </script>
 </body>
 </html>

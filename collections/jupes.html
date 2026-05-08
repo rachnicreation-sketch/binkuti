@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jupes | BINKUTI</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header id="main-header"></header>
+    <main class="section">
+        <div class="section-title">
+            <h1>Jupes</h1>
+            <p>Féminité et élégance.</p>
+        </div>
+        <div class="product-grid" id="jupes-product-grid"></div>
+    </main>
+    <footer id="main-footer"></footer>
+    <script src="../assets/js/main.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const grid = document.getElementById('jupes-product-grid');
+            if (grid) {
+                const products = PRODUCTS_DB.filter(p => p.type === 'Jupe');
+                grid.innerHTML = products.length > 0 
+                    ? products.map(p => generateProductHTML(p)).join('')
+                    : '<div style="grid-column: 1/-1; text-align: center; padding: 3rem; opacity: 0.5;">Bientôt disponible...</div>';
+            }
+        });
+    </script>
+</body>
+</html>

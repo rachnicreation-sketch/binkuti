@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ma Liste d'Envies | BINKUTI</title>
+    <meta name="description" content="Retrouvez tous vos articles favoris BINKUTI sauvegardés dans votre liste d'envies.">
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <header id="main-header"></header>
+
+    <main class="section">
+        <div class="section-title">
+            <h1>Ma Liste d'Envies</h1>
+            <p>Retrouvez ici tous les articles qui vous ont fait craquer.</p>
+        </div>
+
+        <div id="wishlist-grid" class="product-grid">
+            <!-- Loaded dynamically -->
+        </div>
+    </main>
+
+    <footer id="main-footer"></footer>
+
+    <script src="../assets/js/main.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const wishlistIds = JSON.parse(localStorage.getItem('binkuti_wishlist')) || [];
+            const grid = document.getElementById('wishlist-grid');
+
+            if (wishlistIds.length === 0) {
+                grid.innerHTML = `
+                    <div style="grid-column: 1/-1; text-align: center; padding: 5rem 2rem; background: #f9f9f9; border-radius: 8px; border: 1px dashed #ddd;">
+                        <i class="fa-regular fa-heart" style="font-size: 3rem; opacity: 0.2; margin-bottom: 1.5rem; display: block;"></i>
+                        <p style="opacity: 0.6; margin-bottom: 1.5rem;">Votre liste d'envies est vide.</p>
+                        <a href="../shop.html" class="btn btn-primary">Découvrir la boutique</a>
+                    </div>`;
+                return;
+            }
+
+            const wishlistProducts = PRODUCTS_DB.filter(p => wishlistIds.includes(p.id));
+            grid.innerHTML = wishlistProducts.map(p => generateProductHTML(p)).join('');
+        });
+    </script>
+</body>
+</html>

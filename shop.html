@@ -41,10 +41,10 @@
                     <h2>Tous nos articles</h2>
                     <div class="sort-options">
                         Trier par: 
-                        <select style="padding: 0.5rem; border: none; background: transparent; font-weight: 600;">
-                            <option>Nouveautés</option>
-                            <option>Prix croissant</option>
-                            <option>Prix décroissant</option>
+                        <select id="sort-select" style="padding: 0.5rem; border: none; background: transparent; font-weight: 600;">
+                            <option value="newest">Nouveautés</option>
+                            <option value="price-asc">Prix croissant</option>
+                            <option value="price-desc">Prix décroissant</option>
                         </select>
                     </div>
                 </div>
@@ -69,6 +69,9 @@
             document.querySelectorAll('.filter-check').forEach(check => {
                 check.addEventListener('change', () => renderShopProducts());
             });
+
+            // Listen for sort changes
+            document.getElementById('sort-select').addEventListener('change', () => renderShopProducts());
         });
 
         function renderShopProducts() {
@@ -76,6 +79,7 @@
             const urlParams = new URLSearchParams(window.location.search);
             const searchQuery = urlParams.get('search')?.toLowerCase();
             const catQuery = urlParams.get('cat')?.toLowerCase();
+            const sortVal = document.getElementById('sort-select').value;
 
             // Get selected filters
             const selectedFilters = Array.from(document.querySelectorAll('.filter-check:checked')).map(c => c.value);
@@ -92,6 +96,15 @@
             // Apply Sidebar Filters
             if (selectedFilters.length > 0) {
                 products = products.filter(p => selectedFilters.includes(p.cat) || selectedFilters.some(f => p.name.includes(f)));
+            }
+
+            // Apply Sorting
+            if (sortVal === 'price-asc') {
+                products.sort((a, b) => a.price - b.price);
+            } else if (sortVal === 'price-desc') {
+                products.sort((a, b) => b.price - a.price);
+            } else if (sortVal === 'newest') {
+                products.sort((a, b) => b.id - a.id);
             }
 
             if (products.length === 0) {

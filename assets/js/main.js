@@ -3,16 +3,26 @@
 let cart = JSON.parse(localStorage.getItem('binkuti_cart')) || [];
 
 const PRODUCTS_DB = [
-    { id: 1, name: "Robe de Gala 'Éclat'", price: 125000, cat: "Femme", type: "Robe", fabric: "Satin", sizes: ["S", "M", "L", "XL"], desc: "Une robe somptueuse en satin de soie, conçue pour les soirées les plus prestigieuses. Sa coupe sirène souligne parfaitement la silhouette.", imgs: ["assets/images/women_dress.png", "assets/images/product-1-alt.jpg"] },
+    { id: 1, name: "Robe de Gala 'Éclat'", price: 125000, cat: "Femme", type: "Robe", fabric: "Satin", sizes: ["S", "M", "L", "XL"], desc: "Une robe somptueuse en satin de soie, conçue pour les soirées les plus prestigieuses. Sa coupe sirène souligne parfaitement la silhouette.", imgs: ["assets/images/red_dress.png", "assets/images/product-1-alt.jpg"] },
     { id: 2, name: "Blazer Slim Fit", price: 85000, cat: "Homme", type: "Veste", fabric: "Luxe", sizes: ["48", "50", "52", "54"], desc: "Blazer cintré de haute qualité, idéal pour un look business élégant ou une sortie décontractée chic.", imgs: ["assets/images/product-2.jpg", "assets/images/product-2-alt.jpg"] },
     { id: 3, name: "Ensemble Satin Rose", price: 65000, cat: "Femme", type: "Ensemble", fabric: "Satin", sizes: ["S", "M", "L"], desc: "Ensemble deux pièces en satin fluide. Confortable et ultra-tendance pour la saison estivale.", imgs: ["assets/images/product-3.jpg", "assets/images/product-3-alt.jpg"] },
-    { id: 4, name: "Costume de Soirée Luxe", price: 180000, cat: "Homme", type: "Costume", fabric: "Luxe", sizes: ["48", "50", "52", "54", "56"], desc: "Le summum de l'élégance masculine. Costume trois pièces réalisé dans une laine vierge d'exception.", imgs: ["assets/images/product-4.jpg", "assets/images/product-4-alt.jpg"] },
-    { id: 5, name: "Robe d'Été Fleurie", price: 45000, cat: "Femme", type: "Robe", fabric: "Lin", sizes: ["XS", "S", "M", "L"], desc: "Robe légère en lin avec motifs floraux délicats. Parfaite pour vos journées ensoleillées.", imgs: ["assets/images/product-5.jpg"] },
-    { id: 6, name: "Sac à Main Signature", price: 55000, cat: "Accessoires", type: "Sac", fabric: "Cuir", sizes: ["Unique"], desc: "Sac à main en cuir grainé avec finitions dorées. Un accessoire indispensable pour parfaire votre tenue.", imgs: ["assets/images/product-6.jpg"] },
+    { id: 4, name: "Costume de Soirée Luxe", price: 180000, cat: "Homme", type: "Costume", fabric: "Luxe", sizes: ["48", "50", "52", "54", "56"], desc: "Le summum de l'élégance masculine. Costume trois pièces réalisé dans une laine vierge d'exception.", imgs: ["assets/images/navy_suit.png", "assets/images/product-4-alt.jpg"] },
+    { id: 5, name: "Robe d'Été Fleurie", price: 45000, cat: "Femme", type: "Robe", fabric: "Lin", sizes: ["XS", "S", "M", "L"], desc: "Robe légère en lin avec motifs floraux délicats. Parfaite pour vos journées ensoleillées.", imgs: ["assets/images/summer_dress.png"] },
+    { id: 6, name: "Sac à Main Signature", price: 55000, cat: "Accessoires", type: "Sac", fabric: "Cuir", sizes: ["Unique"], desc: "Sac à main en cuir grainé avec finitions dorées. Un accessory indispensable pour parfaire votre tenue.", imgs: ["assets/images/leather_bag.png"] },
     { id: 7, name: "Veste en Jean Stylée", price: 35000, cat: "Femme", type: "Veste", fabric: "Coton", sizes: ["S", "M", "L"], desc: "Veste en jean classique avec une touche moderne.", imgs: ["assets/images/product-7.jpg"] },
     { id: 8, name: "Chemise Casual Lin", price: 28000, cat: "Homme", type: "Chemise", fabric: "Lin", sizes: ["M", "L", "XL"], desc: "Chemise en lin respirante pour un style décontracté.", imgs: ["assets/images/product-8.jpg"] },
     { id: 9, name: "Robe Cocktail Noire", price: 95000, cat: "Femme", type: "Robe", fabric: "Satin", sizes: ["S", "M", "L"], desc: "Petite robe noire indispensable pour toutes les occasions.", imgs: ["assets/images/product-9.jpg"] },
-    { id: 10, name: "Costume Business Gris", price: 150000, cat: "Homme", type: "Costume", fabric: "Luxe", sizes: ["48", "50", "52"], desc: "Costume professionnel à la coupe impeccable.", imgs: ["assets/images/product-10.jpg"] }
+    { id: 10, name: "Costume Business Gris", price: 150000, cat: "Homme", type: "Costume", fabric: "Luxe", sizes: ["48", "50", "52"], desc: "Costume professionnel à la coupe impeccable.", imgs: ["assets/images/product-10.jpg"] },
+    { id: 11, name: "Jean Slim Indigo", price: 32000, cat: "Homme", type: "Jean", fabric: "Coton", sizes: ["32", "34", "36"], desc: "Un jean slim classique et robuste.", imgs: ["assets/images/jean_slim_indigo.png"] },
+    { id: 12, name: "Jupe Plissée Soleil", price: 38000, cat: "Femme", type: "Jupe", fabric: "Soie", sizes: ["S", "M", "L"], desc: "Une jupe élégante pour un look aérien.", imgs: ["assets/images/product-3.jpg"] },
+    { id: 13, name: "Pantalon Chino Beige", price: 42000, cat: "Homme", type: "Pantalon", fabric: "Coton", sizes: ["40", "42", "44"], desc: "Le pantalon polyvalent par excellence.", imgs: ["assets/images/product-2.jpg"] },
+    { id: 14, name: "Robe Princesse Fille", price: 25000, cat: "Enfant", type: "Robe", fabric: "Tulle", sizes: ["4 ans", "6 ans", "8 ans"], desc: "Pour les grandes occasions de vos petites princesses.", imgs: ["assets/images/product-5.jpg"] },
+    { id: 15, name: "T-shirt Graphique Garçon", price: 12000, cat: "Enfant", type: "Haut", fabric: "Coton", sizes: ["6 ans", "8 ans", "10 ans"], desc: "Confortable et stylé pour l'école.", imgs: ["assets/images/product-8.jpg"] },
+    { id: 16, name: "Body Bébé Coton Bio", price: 15000, cat: "Enfant", type: "Bébé", fabric: "Coton Bio", sizes: ["6 mois", "12 mois"], desc: "Douceur absolue pour la peau de bébé.", imgs: ["assets/images/product-3.jpg"] },
+    { id: 17, name: "Jean Mom High Waist", price: 45000, cat: "Femme", type: "Jean", fabric: "Denim", sizes: ["36", "38", "40"], desc: "Le jean tendance de la saison.", imgs: ["assets/images/product-7.jpg"] },
+    { id: 18, name: "Mini Jupe Simili Cuir", price: 29000, cat: "Femme", type: "Jupe", fabric: "Simili Cuir", sizes: ["XS", "S", "M"], desc: "Un look rock et moderne.", imgs: ["assets/images/product-9.jpg"] },
+    { id: 19, name: "Bermuda Cargo Homme", price: 26000, cat: "Homme", type: "Bas", fabric: "Coton", sizes: ["M", "L", "XL"], desc: "Idéal pour les sorties d'été.", imgs: ["assets/images/product-4.jpg"] },
+    { id: 20, name: "Ensemble Bébé 2 Pièces", price: 22000, cat: "Enfant", type: "Bébé", fabric: "Laine", sizes: ["12 mois", "18 mois"], desc: "Un ensemble chaud et mignon.", imgs: ["assets/images/product-2.jpg"] }
 ];
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -21,14 +31,24 @@ document.addEventListener('DOMContentLoaded', () => {
     injectCartDrawer();
     updateCartUI();
     startFlashSaleTimer();
+
+    // Inject responsive stylesheet
+    if (!document.getElementById('binkuti-responsive-css')) {
+        var _l = document.createElement('link');
+        _l.id = 'binkuti-responsive-css';
+        _l.rel = 'stylesheet';
+        _l.href = getPathPrefix() + 'assets/css/responsive.css';
+        document.head.appendChild(_l);
+    }
     
     // Set up search listeners after injection
     setTimeout(() => {
+        const prefix = getPathPrefix();
         document.querySelectorAll('.search-bar input').forEach(input => {
             input.addEventListener('keypress', (e) => {
                 if (e.key === 'Enter') {
                     const query = input.value.trim();
-                    if (query) window.location.href = `shop.html?search=${encodeURIComponent(query)}`;
+                    if (query) window.location.href = `${prefix}shop.html?search=${encodeURIComponent(query)}`;
                 }
             });
         });
@@ -61,8 +81,9 @@ document.addEventListener('DOMContentLoaded', () => {
         icon.onclick = (e) => {
             e.preventDefault();
             const user = localStorage.getItem('binkuti_user');
+            const prefix = getPathPrefix();
             if (user) {
-                window.location.href = 'profile.html';
+                window.location.href = `${prefix}account/profile.html`;
             } else {
                 toggleAuthModal(true);
             }
@@ -71,9 +92,37 @@ document.addEventListener('DOMContentLoaded', () => {
 
     injectAuthModal();
     
+    // Cookie consent banner
+    if (!localStorage.getItem('binkuti_cookies_accepted')) {
+        injectCookieBanner();
+    }
+
     // Newsletter popup delay
     if (!localStorage.getItem('binkuti_newsletter_closed')) {
         setTimeout(() => injectNewsletterPopup(), 5000);
+    }
+
+    injectPageLoader();
+    injectBackToTop();
+
+    // Form Submissions Simulations
+    const contactForm = document.getElementById('contact-form');
+    if (contactForm) {
+        contactForm.onsubmit = (e) => {
+            e.preventDefault();
+            showNotification('Votre message a été envoyé avec succès ! Nous vous répondrons bientôt.');
+            contactForm.reset();
+        };
+    }
+
+    const customForm = document.getElementById('custom-order-form');
+    if (customForm) {
+        customForm.onsubmit = (e) => {
+            e.preventDefault();
+            showNotification('Votre demande de création sur mesure a été reçue ! Nos stylistes vont l\'étudier.');
+            customForm.reset();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        };
     }
 });
 
@@ -157,18 +206,55 @@ function injectAuthModal() {
         const user = { name: "Utilisateur", email: document.getElementById('login-email').value };
         localStorage.setItem('binkuti_user', JSON.stringify(user));
         alert("Connexion réussie !");
-        window.location.reload();
+        
+        if (window.location.pathname.includes('/auth/')) {
+            window.location.href = '../account/profile.html';
+        } else {
+            window.location.reload();
+        }
     };
 
     document.getElementById('auth-form-signup').onsubmit = (e) => {
         e.preventDefault();
-        const name = e.target.querySelector('input[type="text"]').value;
-        const email = e.target.querySelector('input[type="email"]').value;
+        const name = e.target.querySelector('input[id="signup-name"]').value;
+        const email = e.target.querySelector('input[id="signup-email"]').value;
         localStorage.setItem('binkuti_user', JSON.stringify({name: name, email: email}));
         showNotification('Compte créé avec succès !');
         toggleAuthModal(false);
-        setTimeout(() => window.location.href = 'profile.html', 1000);
+        const prefix = getPathPrefix();
+        setTimeout(() => window.location.href = `${prefix}account/profile.html`, 1000);
     };
+}
+
+function getPathPrefix() {
+    const path = window.location.pathname;
+    if (path.includes('/collections/') || path.includes('/legal/') || path.includes('/account/') || path.includes('/auth/')) {
+        return '../';
+    }
+    return '';
+}
+
+function generateProductHTML(p) {
+    const prefix = getPathPrefix();
+    return `
+        <div class="product-card">
+            <div class="product-img">
+                <img src="${prefix}${p.imgs[0]}" id="img-${p.id}">
+                <div class="product-badges">
+                    ${p.price > 100000 ? '<span class="badge badge-new">LUXE</span>' : ''}
+                </div>
+                <div class="product-actions">
+                    <button onclick="toggleWishlist(${p.id}, this)"><i class="fa-regular fa-heart"></i></button>
+                    <button onclick="addToCart(${p.id}, '${p.name.replace(/'/g, "\\'")}', ${p.price}, '${p.imgs[0]}')"><i class="fa-solid fa-bag-shopping"></i></button>
+                </div>
+            </div>
+            <div class="product-info">
+                <p class="product-cat">${p.cat}</p>
+                <h3 class="product-title"><a href="${prefix}product.html?id=${p.id}">${p.name}</a></h3>
+                <p class="product-price">${p.price.toLocaleString()} FCFA</p>
+            </div>
+        </div>
+    `;
 }
 
 // Wishlist Logic
@@ -215,7 +301,7 @@ function switchAuthTab(tab) {
 
 function injectCartDrawer() {
     if (document.getElementById('cart-drawer')) return;
-
+    const prefix = getPathPrefix();
     const drawerHTML = `
         <div class="drawer-overlay" id="drawer-overlay" onclick="toggleCartDrawer(false)"></div>
         <div class="cart-drawer" id="cart-drawer">
@@ -231,8 +317,8 @@ function injectCartDrawer() {
                     <span>TOTAL</span>
                     <span id="drawer-total">0 FCFA</span>
                 </div>
-                <a href="cart.html" class="btn" style="width: 100%; background: #eee; color: #111; margin-bottom: 0.5rem; text-align: center; display: block;">Voir le panier</a>
-                <a href="checkout.html" class="btn btn-primary" style="width: 100%; text-align: center; display: block;">Paiement</a>
+                <a href="${prefix}cart.html" class="btn" style="width: 100%; background: #eee; color: #111; margin-bottom: 0.5rem; text-align: center; display: block;">Voir le panier</a>
+                <a href="${prefix}checkout.html" class="btn btn-primary" style="width: 100%; text-align: center; display: block;">Paiement</a>
             </div>
         </div>
     `;
@@ -312,12 +398,13 @@ function removeItemFromDrawer(index) {
 function generateProductHTML(p) {
     const priceFormatted = p.price.toLocaleString();
     const oldPriceFormatted = (p.price * 1.2).toLocaleString();
+    const prefix = getPathPrefix();
     return `
         <div class="product-card" id="product-${p.id}">
             <div class="product-img">
                 ${p.price > 100000 ? '<div class="product-badge">Premium</div>' : ''}
                 <div class="wishlist-btn" onclick="toggleWishlist(${p.id}, this)"><i class="fa-regular fa-heart"></i></div>
-                <a href="product.html?id=${p.id}"><img src="${p.imgs[0]}" id="img-${p.id}" alt="${p.name}"></a>
+                <a href="${prefix}product.html?id=${p.id}"><img src="${p.imgs[0]}" id="img-${p.id}" alt="${p.name}"></a>
                 <div class="product-arrows">
                     <button class="arrow-btn" onclick="changeImage(${p.id}, -1, ${JSON.stringify(p.imgs).replace(/"/g, '&quot;')})">
                         <i class="fa-solid fa-chevron-left"></i>
@@ -332,7 +419,7 @@ function generateProductHTML(p) {
                     <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
                 </div>
                 <div class="product-cat">${p.cat}</div>
-                <a href="product.html?id=${p.id}" style="text-decoration:none; color:inherit;"><h3 class="product-name">${p.name}</h3></a>
+                <a href="${prefix}product.html?id=${p.id}" style="text-decoration:none; color:inherit;"><h3 class="product-name">${p.name}</h3></a>
                 <div class="product-price">${priceFormatted} FCFA <span style="font-size: 0.8rem; text-decoration: line-through; color: #999; margin-left: 0.5rem;">${oldPriceFormatted} FCFA</span></div>
                 <button onclick="addToCart(${p.id}, '${p.name.replace(/'/g, "\\'")}', ${p.price}, '${p.imgs[0]}')" class="btn btn-primary" style="width: 100%; margin-top: 1rem;">Ajouter au panier</button>
             </div>
@@ -388,65 +475,78 @@ function startFlashSaleTimer() {
 function injectHeader() {
     const header = document.getElementById('main-header');
     if (!header) return;
+    const prefix = getPathPrefix();
     header.innerHTML = `
         <div style="background: var(--secondary); color: white; text-align: center; padding: 0.5rem; font-size: 0.8rem; letter-spacing: 1px; font-weight: 600;">
             LIVRAISON GRATUITE DÈS 50.000 FCFA | -15% SUR VOTRE PREMIÈRE COMMANDE CODE: <strong>BINKUTI15</strong>
         </div>
         <nav class="nav-container">
-            <a href="index.html" class="logo">BIN<span>KUTI</span></a>
+            <a href="${prefix}index.html" class="logo">BIN<span>KUTI</span></a>
             <ul class="nav-links">
                 <li class="has-dropdown">
-                    <a href="shop.html?cat=femme">Femme <i class="fa-solid fa-chevron-down" style="font-size: 0.7rem;"></i></a>
+                    <a href="${prefix}shop.html?cat=femme">Femme <i class="fa-solid fa-chevron-down" style="font-size: 0.7rem;"></i></a>
                     <div class="mega-menu">
                         <div>
                             <h5>Prêt-à-porter</h5>
                             <ul>
-                                <li><a href="robes.html">Robes</a></li>
-                                <li><a href="tops.html">Tops & Chemisiers</a></li>
-                                <li><a href="pantalons.html">Pantalons</a></li>
-                                <li><a href="jupes.html">Jupes</a></li>
+                                <li><a href="${prefix}collections/robes.html">Robes</a></li>
+                                <li><a href="${prefix}collections/tops.html">Tops & Chemisiers</a></li>
+                                <li><a href="${prefix}collections/pantalons.html">Pantalons</a></li>
+                                <li><a href="${prefix}collections/jupes.html">Jupes</a></li>
                             </ul>
                         </div>
                         <div>
                             <h5>Occasions</h5>
                             <ul>
-                                <li><a href="robes.html">Soirées & Gala</a></li>
-                                <li><a href="robes.html">Mariages</a></li>
-                                <li><a href="shop.html">Bureau</a></li>
-                                <li><a href="shop.html">Casual</a></li>
+                                <li><a href="${prefix}collections/robes.html">Soirées & Gala</a></li>
+                                <li><a href="${prefix}collections/robes.html">Mariages</a></li>
+                                <li><a href="${prefix}shop.html">Bureau</a></li>
+                                <li><a href="${prefix}shop.html">Casual</a></li>
                             </ul>
                         </div>
                         <div>
                             <h5>Accessoires</h5>
                             <ul>
-                                <li><a href="accessoires.html">Sacs</a></li>
-                                <li><a href="accessoires.html">Bijoux</a></li>
-                                <li><a href="accessoires.html">Chaussures</a></li>
+                                <li><a href="${prefix}collections/accessoires.html">Sacs</a></li>
+                                <li><a href="${prefix}collections/accessoires.html">Bijoux</a></li>
+                                <li><a href="${prefix}collections/accessoires.html">Chaussures</a></li>
                             </ul>
                         </div>
                         <div>
-                            <img src="assets/images/women_dress.png" style="width: 100%; border-radius: 4px;">
+                            <img src="${prefix}assets/images/red_dress.png" style="width: 100%; border-radius: 4px;">
                         </div>
                     </div>
                 </li>
                 <li class="has-dropdown">
-                    <a href="shop.html?cat=homme">Homme <i class="fa-solid fa-chevron-down" style="font-size: 0.7rem;"></i></a>
+                    <a href="${prefix}shop.html?cat=homme">Homme <i class="fa-solid fa-chevron-down" style="font-size: 0.7rem;"></i></a>
                     <div class="mega-menu">
                         <div>
                             <h5>Collection</h5>
                             <ul>
-                                <li><a href="costumes.html">Costumes</a></li>
-                                <li><a href="chemises.html">Chemises</a></li>
-                                <li><a href="jeans.html">Pantalons & Jeans</a></li>
+                                <li><a href="${prefix}collections/costumes.html">Costumes</a></li>
+                                <li><a href="${prefix}collections/chemises.html">Chemises</a></li>
+                                <li><a href="${prefix}collections/jeans.html">Pantalons & Jeans</a></li>
                             </ul>
                         </div>
                         <div>
-                            <img src="assets/images/product-4.jpg" style="width: 100%; border-radius: 4px;">
+                            <img src="${prefix}assets/images/navy_suit.png" style="width: 100%; border-radius: 4px;">
                         </div>
                     </div>
                 </li>
-                <li><a href="shop.html?cat=enfant">Enfant</a></li>
-                <li><a href="custom.html">Sur Mesure</a></li>
+                <li class="has-dropdown">
+                    <a href="${prefix}shop.html?cat=enfant">Enfant <i class="fa-solid fa-chevron-down" style="font-size: 0.7rem;"></i></a>
+                    <div class="mega-menu" style="grid-template-columns: 1fr; width: 300px;">
+                        <div>
+                            <h5>Par Univers</h5>
+                            <ul>
+                                <li><a href="${prefix}collections/bebe.html">Bébé (0-2 ans)</a></li>
+                                <li><a href="${prefix}collections/fille.html">Fille (3-14 ans)</a></li>
+                                <li><a href="${prefix}collections/garcon.html">Garçon (3-14 ans)</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </li>
+                <li><a href="${prefix}custom.html">Sur Mesure</a></li>
             </ul>
 
             <div class="nav-actions" style="flex: 1; justify-content: flex-end; gap: 2rem;">
@@ -454,7 +554,7 @@ function injectHeader() {
                     <input type="text" placeholder="Rechercher..." style="width: 100%; padding: 0.6rem 1rem; border: 1px solid #eee; border-radius: 4px; background: #f5f5f5; font-size: 0.85rem;">
                 </div>
                 <div style="display: flex; gap: 1.2rem; align-items: center;">
-                    <a href="${localStorage.getItem('binkuti_user') ? 'profile.html' : '#'}" onclick="${localStorage.getItem('binkuti_user') ? '' : 'toggleAuthModal(true); return false;'}" style="color: inherit; text-decoration: none;">
+                    <a href="${localStorage.getItem('binkuti_user') ? prefix + 'account/profile.html' : '#'}" onclick="${localStorage.getItem('binkuti_user') ? '' : 'toggleAuthModal(true); return false;'}" style="color: inherit; text-decoration: none;">
                         <i class="fa-regular fa-user" style="cursor:pointer;"></i>
                     </a>
                     <div class="cart-icon" style="cursor:pointer;">
@@ -470,10 +570,11 @@ function injectHeader() {
 function injectFooter() {
     const footer = document.getElementById('main-footer');
     if (!footer) return;
+    const prefix = getPathPrefix();
     footer.innerHTML = `
         <div class="footer-grid">
             <div class="footer-col">
-                <a href="index.html" class="logo" style="color: white; margin-bottom: 1.5rem; display: block;">BIN<span>KUTI</span></a>
+                <a href="${prefix}index.html" class="logo" style="color: white; margin-bottom: 1.5rem; display: block;">BIN<span>KUTI</span></a>
                 <p>L'excellence de la mode et du sur-mesure. Des créations uniques pour des moments d'exception.</p>
                 <div class="social-links" style="margin-top: 1.5rem; display: flex; gap: 1rem;">
                     <a href="#"><i class="fa-brands fa-instagram"></i></a>
@@ -484,19 +585,20 @@ function injectFooter() {
             <div class="footer-col">
                 <h4>Boutique</h4>
                 <ul class="footer-links">
-                    <li><a href="shop.html?cat=femme">Femme</a></li>
-                    <li><a href="shop.html?cat=homme">Homme</a></li>
-                    <li><a href="shop.html?cat=enfant">Enfant</a></li>
-                    <li><a href="custom.html">Sur Mesure</a></li>
+                    <li><a href="${prefix}shop.html?cat=femme">Femme</a></li>
+                    <li><a href="${prefix}shop.html?cat=homme">Homme</a></li>
+                    <li><a href="${prefix}shop.html?cat=enfant">Enfant</a></li>
+                    <li><a href="${prefix}collections/accessoires.html">Accessoires</a></li>
+                    <li><a href="${prefix}custom.html">Sur Mesure</a></li>
                 </ul>
             </div>
             <div class="footer-col">
                 <h4>Service Client</h4>
                 <ul class="footer-links">
-                    <li><a href="#">Livraison & Retours</a></li>
-                    <li><a href="#">Guide des tailles</a></li>
-                    <li><a href="#">Contactez-nous</a></li>
-                    <li><a href="#">FAQ</a></li>
+                    <li><a href="${prefix}legal/shipping.html">Livraison & Retours</a></li>
+                    <li><a href="${prefix}legal/returns.html">Guide des tailles</a></li>
+                    <li><a href="${prefix}contact.html">Contactez-nous</a></li>
+                    <li><a href="${prefix}faq.html">FAQ</a></li>
                 </ul>
             </div>
             <div class="footer-col">
@@ -526,9 +628,71 @@ function showNotification(msg) {
     setTimeout(() => toast.remove(), 3000);
 }
 
-function removeItemFromDrawer(index) {
-    cart.splice(index, 1);
-    localStorage.setItem('binkuti_cart', JSON.stringify(cart));
-    updateCartUI();
-    renderDrawerItems();
+function logout() {
+    localStorage.removeItem('binkuti_user');
+    const prefix = getPathPrefix();
+    window.location.href = `${prefix}index.html`;
+}
+
+function injectCookieBanner() {
+    if (document.getElementById('cookie-banner')) return;
+    const prefix = getPathPrefix();
+    const banner = document.createElement('div');
+    banner.id = 'cookie-banner';
+    banner.style.cssText = `
+        position: fixed; bottom: 0; left: 0; right: 0; background: #1a1a1a; color: #fff;
+        padding: 1.2rem 2rem; display: flex; align-items: center; justify-content: space-between;
+        gap: 2rem; z-index: 9998; flex-wrap: wrap; font-size: 0.9rem;
+    `;
+    banner.innerHTML = `
+        <p style="margin:0; opacity:0.85; max-width: 700px;">
+            <i class="fa-solid fa-cookie-bite" style="color: var(--primary); margin-right: 0.5rem;"></i>
+            Nous utilisons des cookies pour améliorer votre expérience. En continuant, vous acceptez notre 
+            <a href="${prefix}legal/privacy.html" style="color: var(--primary); text-decoration: underline;">Politique de Confidentialité</a>.
+        </p>
+        <div style="display: flex; gap: 1rem; flex-shrink: 0;">
+            <button onclick="acceptCookies()" class="btn btn-primary" style="padding: 0.6rem 1.5rem;">Accepter</button>
+            <button onclick="declineCookies()" class="btn" style="padding: 0.6rem 1.5rem; background: #333; color: #fff;">Refuser</button>
+        </div>
+    `;
+    document.body.appendChild(banner);
+}
+
+function acceptCookies() {
+    localStorage.setItem('binkuti_cookies_accepted', 'true');
+    document.getElementById('cookie-banner').remove();
+}
+
+function declineCookies() {
+    localStorage.setItem('binkuti_cookies_accepted', 'declined');
+    document.getElementById('cookie-banner').remove();
+}
+function injectPageLoader() {
+    const loader = document.createElement('div');
+    loader.id = 'page-loader';
+    loader.innerHTML = '<div class="loader-spinner"></div>';
+    document.body.appendChild(loader);
+
+    window.addEventListener('load', () => {
+        setTimeout(() => {
+            loader.style.opacity = '0';
+            setTimeout(() => loader.remove(), 500);
+        }, 500);
+    });
+}
+
+function injectBackToTop() {
+    const btn = document.createElement('div');
+    btn.id = 'back-to-top';
+    btn.innerHTML = '<i class="fa-solid fa-arrow-up"></i>';
+    document.body.appendChild(btn);
+
+    window.addEventListener('scroll', () => {
+        if (window.pageYOffset > 300) btn.classList.add('active');
+        else btn.classList.remove('active');
+    });
+
+    btn.onclick = () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    };
 }

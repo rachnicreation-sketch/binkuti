@@ -1,10 +1,10 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Costumes | BINKUTI</title>
-    <link rel="stylesheet" href="assets/css/style.css">
+    <title>Robes | BINKUTI</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
@@ -14,23 +14,23 @@
 
     <main class="section">
         <div class="section-title">
-            <h1>Costumes Homme</h1>
-            <p>Le raffinement et l'élégance du vestiaire masculin.</p>
+            <h1>Collection de Robes</h1>
+            <p>Découvrez nos pièces d'exception pour toutes vos occasions.</p>
         </div>
 
-        <div class="product-grid" id="costumes-product-grid">
+        <div class="product-grid" id="robes-product-grid">
             <!-- Dynamic Products -->
         </div>
     </main>
 
     <footer id="main-footer"></footer>
 
-    <script src="assets/js/main.js"></script>
+    <script src="../assets/js/main.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            const grid = document.getElementById('costumes-product-grid');
-            const costumes = PRODUCTS_DB.filter(p => p.type === 'Costume' || p.type === 'Veste');
-            grid.innerHTML = costumes.map(p => generateProductHTML(p)).join('');
+            const grid = document.getElementById('robes-product-grid');
+            const robes = PRODUCTS_DB.filter(p => p.type === 'Robe');
+            grid.innerHTML = robes.map(p => generateProductHTML(p)).join('');
         });
     </script>
 </body>
